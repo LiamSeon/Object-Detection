@@ -2,14 +2,12 @@
 Reviews for object detection papers
 
 
-## 1-1. 1-stage detector & default box
+## 1-1. SSD
 
-Multi-scale Feature map for detection
+1. Default Box의 Feature Map에 대한 상대적인 크기는 고정되어 있다.
+2. 각각의 Default Box는 C+4개의 Ouput을 갖게되며 (클래스 숫자와 Offset을 합한 크기), 1개의 m*n의 feature map에 대해 (c+4)*k*m*n의 Output을 갖게 된다.
+3. Non-maximum suppression을 이용해 가장 클래스가 있을 법한 Default Box 만을 고르게 되는데, NMS는 각각의 박스를 Confidence Score가 높은 순으로 정렬하고 IOU가 0.5인 박스를 삭제함으로써 얻어진다.
+4. 이 박스에 대해 Loss를 적용한다.
 
-각각의 feature map에서 Default Box를 뽑아서 Ground truth box와 비교한다. 그리고 3x3xp kernel은 class score와 default box coordinates에 상대적인 shape offset을 만든다.
-
-Bounding Box의 offset은 각 feature map상의 default box에 상대적으로 측정된다.
-
-그리고 Default Bounding Box 좌표를 각 Feature Map에 타일링한다. 그러고 나서 Bounding Box의 해당 Default Box와 상대적인 offset 값을 통해 나타낸다.
 
 
