@@ -1,6 +1,10 @@
 # Object-Detection
 Reviews for object detection papers
 
+## 용어 정리
+
+receptive field : 출력 공간에 영향을 미치는 영역
+
 
 ## 1-1. SSD
 
